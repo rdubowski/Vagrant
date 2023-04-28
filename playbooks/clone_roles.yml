@@ -1,0 +1,18 @@
+---
+- name:
+  hosts: all
+  become: true
+  vars:
+    git_repository: "https://github.com/rdubowski/Vagrant.git"
+    git_branch: "master"
+tasks:
+  - name: create directory roles  
+    file:
+      path: /etc/ansible/roles
+      state: directory
+      mode: '0775'
+  - name: checkout
+    git:
+      repo: "{{ git_repository }}"
+      dest: "/etc/ansible/roles"
+      version: "{{ git_branch }}"
