@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
         ansible.playbook = "playbooks/init.yml"
     end 
     
-    if VAGRANT_COMMAND == "ssh":
+    if VAGRANT_COMMAND == "ssh"
         config.ssh.username = "panda"
     end
 end
